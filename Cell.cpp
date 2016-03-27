@@ -26,4 +26,6 @@ void Cell::mousePressEvent(QGraphicsSceneMouseEvent *event)
 void Cell::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
     m_text = "x";
+
+    update();
 }
