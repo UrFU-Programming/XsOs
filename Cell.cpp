@@ -1,7 +1,8 @@
 #include "Cell.hpp"
 #include <QPainter>
 #include <QGraphicsSceneMouseEvent>
-Cell::Cell():QGraphicsItem()
+
+Cell::Cell():QGraphicsObject()
 
 {
 
