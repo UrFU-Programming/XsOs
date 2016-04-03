@@ -17,11 +17,17 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    Cell *m_cells[9];
+    int i=0;
+    void Finish();
+
+protected slots:
+    void onCellClicked(Cell *cell);
 
 private:
     QGraphicsScene *m_scene;
     Ui::MainWindow *ui;
-    Cell *m_cells[9];
+
 
 };
 

@@ -1,11 +1,11 @@
 #include "Cell.hpp"
 #include <QPainter>
 #include <QGraphicsSceneMouseEvent>
-
+#include "MainWindow.hpp"
 Cell::Cell():QGraphicsObject()
 
 {
-
+    m_state=Statenothing;
 }
 
 QRectF Cell::boundingRect() const
@@ -15,23 +15,56 @@ QRectF Cell::boundingRect() const
 
 void Cell::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-    QRect rect = QRect(0, 0, 50, 50);
-    QFont font = painter->font();
-    font.setPointSize(font.pointSize()*3);
-
-    painter->drawRect(rect);
-    painter->setFont(font);
-    painter->drawText(rect,Qt::AlignCenter,m_text);
+   painter->drawRect(0,0,50,50);
+   switch (m_state) {
+   case StateX:
+       painter->drawText(25,25, "X");
+       break;
+   case State0:
+       painter->drawText(25,25, "0");
+       break;
+   default:
+       break;
+   }
 }
-
 
 void Cell::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     event->accept();
 }
 
-void Cell::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
+//void Cell::blabla()
+//{
+//    switch(m_state)
+//    {
+//    case Statenothing:
+//        m_state=StateX;
+//        m_text=' ';
+//        break;
+//    case StateX:
+//        m_state=State0;
+//        m_text='x';
+//        break;
+//    case State0:
+//        m_state=StateX;
+//        m_text='0';
+//        break;
+//    }
+
+//}
+void Cell::setState(State stat)
 {
-    m_text = "X";
+    if (m_state == stat)
+    {
+        return;
+    }
+    m_state=stat;
+
     update();
 }
+
+void Cell::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
+{
+    emit clicked(this);
+}
+
