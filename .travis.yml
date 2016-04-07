@@ -6,7 +6,6 @@ compiler: gcc
 before_install:
   - sudo apt-add-repository -y ppa:roblib/ppa
   - sudo apt-get -qq update
-  - sudo apt-get -y install cmake
   - lsb_release -a
       && sudo apt-add-repository -y ppa:ubuntu-toolchain-r/test
       && sudo apt-add-repository -y ppa:beineri/opt-qt542
