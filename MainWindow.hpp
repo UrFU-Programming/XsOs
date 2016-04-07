@@ -18,6 +18,9 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+protected slots:
+    void onCellClicked(Cell *cell);
+
 private:
     QGraphicsScene *m_scene;
     Ui::MainWindow *ui;
