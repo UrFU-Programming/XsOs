@@ -25,6 +25,7 @@ void Cell::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
        break;
     default:
        break;
+    }
 }
 
 void Cell::setState(State stat)
