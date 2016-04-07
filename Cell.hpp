@@ -20,6 +20,10 @@ public:
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
     State state() {return m_state;}
     void setState(State stat);
+
+signals:
+    void clicked(Cell *cell);
+
 private:
     QString m_text;
 protected:
